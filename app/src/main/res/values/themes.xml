@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.MovieApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.MovieApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -13,6 +13,47 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="tiiitle_tex">
+
+        <item name="android:textSize">
+            31sp
+        </item>
+
+        <item name="android:textColor">
+            #09051C
+        </item>
+
+    </style>
+
+    <style name="popular_mov">
+
+        <item name="android:textSize">
+            15sp
+        </item>
+
+        <item name="android:textColor">
+            #09051C
+        </item>
+
+    </style>
+
+    <style name="searc_sampl">
+
+        <item name="android:textSize">
+            12sp
+        </item>
+
+        <item name="android:letterSpacing">
+            0.04
+        </item>
+
+        <item name="android:textColor">
+            #A51F1E
+        </item>
+
+    </style>
+
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowBackground">
             @drawable/splash_background
