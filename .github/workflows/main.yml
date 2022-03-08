@@ -27,7 +27,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: 17
-          distribituin: 'adopt'
+          distribution: 'adopt'
             
       - name: Build Project
         run: ./gradlew build     
