@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Movies</string>
+    <string name="titleHome">Find Your Favorite Movie</string>
+    <string name="secondTitleHome">Popular Movies</string>
 </resources>
