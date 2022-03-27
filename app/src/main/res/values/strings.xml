@@ -2,4 +2,10 @@
     <string name="app_name">Movies</string>
     <string name="titleHome">Find Your Favorite Movie</string>
     <string name="secondTitleHome">Popular Movies</string>
+    <string name="spider_man">Spider-Man</string>
+
+    <string name="peli">Peli</string>
+    <string name="botonpractica">Pagina</string>
+    <string name="back">Back</string>
+    <string name="imagen_de_pelicula">Imagen de pelicula</string>
 </resources>
