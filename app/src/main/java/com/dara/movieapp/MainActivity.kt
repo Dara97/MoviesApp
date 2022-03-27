@@ -7,33 +7,38 @@ import android.os.Bundle
 import android.os.Handler
 import android.widget.Toast
 import com.airbnb.lottie.LottieAnimationView
-import kotlinx.android.synthetic.main.activity_main.*
+import com.dara.movieapp.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity() {
 
     private var i : Int = 0
+    private lateinit var  binding : ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.buttonPasarPagina.setOnClickListener{
+
+        }
 
         var like = false
 
-        likeImageView.setOnClickListener{
-            like = likeAnimation(likeImageView, R.raw.bandai_dokkan, like)
+        binding.likeImageView.setOnClickListener{
+            like = likeAnimation(binding.likeImageView, R.raw.bandai_dokkan, like)
         }
 
         var like2 = false
 
-        likeImageView2.setOnClickListener {
-            like2 = likeAnimation(likeImageView2, R.raw.hmm, like2)
+        binding.likeImageView2.setOnClickListener {
+            like2 = likeAnimation(binding.likeImageView2, R.raw.hmm, like2)
         }
 
         var likeimage = false
 
-        imageViewMovie.setOnClickListener{
+        binding.imageViewMovie.setOnClickListener{
             i++
             val handler = Handler()
 
@@ -42,7 +47,7 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this@MainActivity, "Un click para ver detalles de peli", Toast.LENGTH_SHORT).show()
                 }else if (i==2){
                     Toast.makeText(this@MainActivity, "Doble click para dar like", Toast.LENGTH_SHORT).show()
-                    likeimage = likeAnimationImage(imageViewMovie, R.raw.hmm, likeimage)
+                    likeimage = likeAnimationImage(binding.imageViewMovie, R.raw.hmm, likeimage)
                 }
                 i=0
             },500)
@@ -50,12 +55,12 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
-    private fun likeAnimation(imageView: LottieAnimationView, animation: Int, like: Boolean):Boolean{
+    private fun likeAnimation(imageView: LottieAnimationView, animation: Int, likeIcon: Boolean):Boolean{
 
-        if (!like){
+        if (!likeIcon){
             imageView.setAnimation(animation)
             imageView.playAnimation()
-            println(like)
+            println(likeIcon)
         }else {
             imageView.animate()
                 .alpha(0f)
@@ -67,7 +72,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 })
         }
-        return !like
+        return !likeIcon
     }
 
     private fun likeAnimationImage(
