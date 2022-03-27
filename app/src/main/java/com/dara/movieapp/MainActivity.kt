@@ -2,10 +2,14 @@ package com.dara.movieapp
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.airbnb.lottie.LottieAnimationView
+import com.dara.movieapp.adapter.SuperHeroAdapter
 import com.dara.movieapp.databinding.ActivityMainBinding
 
 
@@ -19,8 +23,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.buttonPasarPagina.setOnClickListener{
+        initRecyclerView()
 
+        binding.buttonPasarPagina.setOnClickListener{
+            checkValue()
         }
 
         var like = false
@@ -87,6 +93,18 @@ class MainActivity : AppCompatActivity() {
 
         return !likeimage
 
+    }
+
+    fun checkValue(){
+        val intent = Intent(this, DetailsActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun initRecyclerView(){
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerSuperHero)
+        //val recyclerView = binding.recyclerSuperHero
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = SuperHeroAdapter(SuperHeroProvider.superheroList)
     }
 
 }
