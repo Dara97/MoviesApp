@@ -6,4 +6,6 @@
 
     <string name="peli">Peli</string>
     <string name="botonpractica">Pagina</string>
+    <string name="back">Back</string>
+    <string name="imagen_de_pelicula">Imagen de pelicula</string>
 </resources>

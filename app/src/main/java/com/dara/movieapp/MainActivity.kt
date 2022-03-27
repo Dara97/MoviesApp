@@ -2,10 +2,16 @@ package com.dara.movieapp
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.airbnb.lottie.LottieAnimationView
+import com.dara.movieapp.adapter.SuperHeroAdapter
 import com.dara.movieapp.databinding.ActivityMainBinding
 
 
@@ -19,8 +25,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.buttonPasarPagina.setOnClickListener{
+        initRecyclerView()
 
+        binding.buttonPasarPagina.setOnClickListener{
+            checkValue()
         }
 
         var like = false
@@ -89,4 +97,24 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    fun checkValue(){
+        val intent = Intent(this, DetailsActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun initRecyclerView(){
+        val manager = GridLayoutManager(this,3)
+        val decoration = DividerItemDecoration(this, manager.orientation)
+        val recyclerView = binding.recyclerSuperHero
+        recyclerView.layoutManager = manager
+        recyclerView.adapter = SuperHeroAdapter(SuperHeroProvider.superheroList) { superHero ->
+            onItemSelected(
+                superHero
+            )
+        }
+        binding.recyclerSuperHero.addItemDecoration(decoration)
+    }
+    fun onItemSelected(superHero: SuperHero){
+        Toast.makeText(this,superHero.superhero, Toast.LENGTH_SHORT).show()
+    }
 }
