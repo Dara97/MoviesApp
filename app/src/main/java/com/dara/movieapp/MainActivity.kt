@@ -4,7 +4,6 @@ import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
 import android.widget.Toast
 import com.airbnb.lottie.LottieAnimationView
 import com.dara.movieapp.databinding.ActivityMainBinding
@@ -40,9 +39,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.imageViewMovie.setOnClickListener{
             i++
-            val handler = Handler()
 
-            handler.postDelayed({
                 if(i==1){
                     Toast.makeText(this@MainActivity, "Un click para ver detalles de peli", Toast.LENGTH_SHORT).show()
                 }else if (i==2){
@@ -50,9 +47,9 @@ class MainActivity : AppCompatActivity() {
                     likeimage = likeAnimationImage(binding.imageViewMovie, R.raw.hmm, likeimage)
                 }
                 i=0
-            },500)
+            }
 
-        }
+
 
     }
     private fun likeAnimation(imageView: LottieAnimationView, animation: Int, likeIcon: Boolean):Boolean{
@@ -85,8 +82,6 @@ class MainActivity : AppCompatActivity() {
         if (!likeimage){
            imageViewMovie.setAnimation(animation)
             imageViewMovie.playAnimation()
-            imageViewMovie.setImageResource(R.drawable.spider)
-
         }
 
 
