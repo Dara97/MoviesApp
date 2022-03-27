@@ -7,7 +7,7 @@ import com.dara.movieapp.R
 import com.dara.movieapp.SuperHero
 
 
-class SuperHeroAdapter(private val superheroList:List<SuperHero>) : RecyclerView.Adapter<SuperHeroViewHolder>(){
+class SuperHeroAdapter(private val superheroList:List<SuperHero>, private val onClickListener:(SuperHero)-> Unit) : RecyclerView.Adapter<SuperHeroViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SuperHeroViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -16,7 +16,7 @@ class SuperHeroAdapter(private val superheroList:List<SuperHero>) : RecyclerView
 
     override fun onBindViewHolder(holder: SuperHeroViewHolder, position: Int) {
         val item = superheroList[position]
-        holder.render(item)
+        holder.render(item, onClickListener)
     }
 
     override fun getItemCount(): Int = superheroList.size
